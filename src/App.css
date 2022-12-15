@@ -1,3 +1,104 @@
+/* Header css */
+.ParentBox {
+  justify-content: space-between;
+  display: flex;
+  background-color: #404040;
+}
+
+/* Header css End */
+/* Home css  */
+.imgBodyParent {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.imgBody {
+  background-color: #ff3333;
+  width: 65%;
+  height: 500px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+
+  display: flex;
+  justify-content: space-around;
+  padding-right: 80px;
+}
+.beats {
+  display: flex;
+  align-items: end;
+  font-family: fangsong !important;
+  margin-bottom: -60px !important;
+}
+.Summer {
+  display: flex;
+  align-items: end;
+  font-family: fangsong !important;
+}
+.FINE {
+  font-size: 150px !important;
+  font-family: fantasy !important;
+  color: white;
+  display: flex;
+  align-items: end;
+  margin-top: -60px !important;
+}
+.BoatHeadcss {
+  width: 400px;
+  height: 400px;
+  display: flex;
+}
+.Buttoncss {
+  color: #ff3333 !important;
+  background-color: white !important;
+  height: fit-content !important;
+  width: fit-content !important;
+}
+.threeItem {
+  display: grid;
+}
+
+.allCards {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.Rowcard {
+  width: 250px;
+  height: 250px;
+  padding: 20px;
+}
+.cardpadding {
+  border-radius: 20px !important;
+  background-color: #f2f2f2 !important;
+}
+.cardpadding:hover {
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.Titlecss {
+  padding-left: 20px;
+  padding-top: 10px;
+}
+.pricecss {
+  font-weight: bold !important;
+  padding-left: 20px;
+  /* padding-top: 10px; */
+}
+
+/* hedercss */
+.speakerscolor {
+  /* background-color: #ff3333 !important; */
+  color: #ff0000 !important;
+}
+.Earphonescolor {
+  color: #ff0000 !important;
+}
+.Watchescolor {
+  color: #ff0000 !important;
+}
+
+/* ***** */
+
 .App {
   text-align: center;
 }
