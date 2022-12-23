@@ -1,51 +1,74 @@
+body {
+  background-color: #f2f2f2;
+}
+
 /* Header css */
 .ParentBox {
   justify-content: space-between;
   display: flex;
-  background-color: #404040;
+  background-color: white;
 }
-
+.ChildBox2 {
+  margin-right: 20px !important;
+}
+.ChildBox3 {
+}
 /* Header css End */
 /* Home css  */
 .imgBodyParent {
   display: flex;
   justify-content: center;
+
   padding-top: 20px;
 }
 .imgBody {
-  background-color: #ff3333;
-  width: 65%;
-  height: 500px;
+  background-color: #ff3333e8;
+  width: 85%;
+  height: 550px;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  /* box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; */
 
   display: flex;
-  justify-content: space-around;
-  padding-right: 80px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 50px !important;
 }
 .beats {
   display: flex;
-  align-items: end;
+  /* align-items: end; */
   font-family: fangsong !important;
-  margin-bottom: -60px !important;
+  font-size: 2vw !important;
+  /* margin-bottom: -60px !important; */
 }
 .Summer {
   display: flex;
-  align-items: end;
+  /* align-items: end; */
   font-family: fangsong !important;
+
+  font-size: 3vw !important;
+  /* font-family: "Audiowide", sans-serif; */
 }
 .FINE {
-  font-size: 150px !important;
+  font-size: 5vw !important;
   font-family: fantasy !important;
   color: white;
   display: flex;
-  align-items: end;
-  margin-top: -60px !important;
+  flex-wrap: wrap;
+  /* font-family: "Sofia", sans-serif; */
+
+  /* align-items: end; */
+  /* margin-top: -60px !important; */
+}
+.BoatHeadcssParent {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* margin-right: 80px !important; */
 }
 .BoatHeadcss {
-  width: 400px;
-  height: 400px;
-  display: flex;
+  /* width: 400px !important;
+  height: 400px !important; */
+  /* height: 90%; */
+  /* margin-right: 50px; */
 }
 .Buttoncss {
   color: #ff3333 !important;
@@ -54,7 +77,12 @@
   width: fit-content !important;
 }
 .threeItem {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+
+  margin-left: 90px !important;
 }
 
 .allCards {
@@ -63,17 +91,29 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.ProductallCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .Rowcard {
   width: 250px;
-  height: 250px;
+
+  padding: 20px;
+}
+.ProductRowcard {
   padding: 20px;
 }
 .cardpadding {
   border-radius: 20px !important;
-  background-color: #f2f2f2 !important;
+  background-color: #d9d9d9 !important;
 }
 .cardpadding:hover {
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.Productcardpadding {
+  border-radius: 20px !important;
+  background-color: #d9d9d9 !important;
 }
 .Titlecss {
   padding-left: 20px;
@@ -88,13 +128,177 @@
 /* hedercss */
 .speakerscolor {
   /* background-color: #ff3333 !important; */
-  color: #ff0000 !important;
+  color: #ff3333 !important;
+  font-size: large !important;
 }
 .Earphonescolor {
-  color: #ff0000 !important;
+  color: #ff3333 !important;
 }
 .Watchescolor {
-  color: #ff0000 !important;
+  color: #ff3333 !important;
+}
+.productActionArea {
+  height: 400px;
+}
+.productBoth {
+  display: flex !important;
+  flex-wrap: wrap;
+  padding: 70px;
+  /* padding-left: 151px; */
+}
+.productShowDiv {
+  padding: 30px;
+}
+.productTitleDiv {
+  font-size: 30px !important;
+}
+.productTwobutton {
+  display: flex;
+  margin-top: 50px !important;
+}
+.Addtocartbtn {
+  margin-right: 20px !important;
+  color: #ff3333 !important;
+  border-color: #ff3333 !important;
+  transition: transform 0.2s;
+}
+.Addtocartbtn:hover {
+  transform: scale(1.1);
+  /* zoom: 110%; */
+}
+.buynowbtn {
+  background-color: #ff3333 !important;
+}
+.buynowbtn:hover {
+  transform: scale(1.1);
+}
+.productFirstcard {
+  border-radius: 20px !important;
+  background-color: #d9d9d9 !important;
+}
+.productFirstcard :hover {
+  background-color: #ff3333 !important;
+}
+.youmayalsolike {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-family: fangsong;
+}
+.CartCount {
+  position: absolute;
+  /* right: -8px; */
+  font-size: 14px;
+  color: #eee;
+  background-color: #ff3333;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 600;
+  right: 1px;
+  top: 10px;
+}
+.CartBagicon {
+  color: black;
+  font-size: 34px !important;
+}
+
+/* cart component css */
+
+.cartDiv {
+  display: flex;
+  margin: 30px !important;
+}
+.CartImg {
+  background-color: #f2f2f2 !important;
+  margin-right: 25px;
+}
+.CartDtls {
+  width: 400px;
+}
+.TitlePrice {
+  display: flex;
+  justify-content: space-between;
+}
+.cartMain {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: space-between; */
+}
+.checkoutCss {
+  /* background-color: #61dafb; */
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.Subtotal {
+  display: flex;
+  justify-content: space-around;
+}
+.CheckoutBtn {
+  background-color: #ff3333 !important;
+  margin-left: 90px !important;
+  margin-right: 90px !important;
+  /* width: 300px; */
+  text-transform: capitalize !important;
+  color: white !important;
+  border-radius: 10px !important;
+}
+.cancelbtn {
+  color: #ff3333 !important;
+}
+.CartIncRemove {
+  display: flex !important;
+  justify-content: space-between;
+  margin-top: 62px !important;
+}
+
+.EmtyCartParent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.HeaderCartIcon {
+  font-size: 200px !important;
+}
+.EmtyCartBtn {
+  background-color: #ff3333 !important;
+  color: white !important;
+  width: 330px;
+  margin-top: 20px !important;
+}
+/* cart component end */
+
+@media only screen and (min-width: 818px) {
+  .marquee {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .track {
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 15s linear infinite;
+    width: 180%;
+  }
+  .track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 /* ***** */

@@ -9,12 +9,49 @@ import Menu from "@mui/material/Menu";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Divider, makeStyles, Drawer } from "@material-ui/core";
+import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
+import { useContext } from "react";
+import { Context } from "../context";
+import Cart from "./Cart";
+
+const useStyles = makeStyles((theme) => ({
+  menuSliderContainer: {
+    width: 610,
+    height: "100%",
+  },
+  BoxmenuSliderContainer: {
+    width: 610,
+    height: "100%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  listItem: {
+    color: "tan",
+  },
+}));
 
 const settings = ["Profile", "Logout"];
 
 export default function Header() {
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const { state } = useContext(Context);
+
+  console.log("-->", state);
+  const { cart } = state;
+  let itemCount = 0;
+
+  for (const [key, value] of Object.entries(cart)) {
+    itemCount = itemCount + cart[key].qty;
+  }
+
+  const toggleSlider = () => {
+    setOpen(!open);
+  };
   const navigate = useNavigate();
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -26,43 +63,55 @@ export default function Header() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  //   const handleNavigate = () => {
-  //     navigate("/earphones");
-  //     // alert("hii");
-  //   };
+
+  const sideList = () =>
+    itemCount ? (
+      <Box className={classes.menuSliderContainer} component="div">
+        <Divider />
+        <Cart />
+      </Box>
+    ) : (
+      <Box className={classes.BoxmenuSliderContainer}>
+        <Typography variant="div" className="EmtyCartParent">
+          <Typography variant="div" className="">
+            <LocalMallOutlinedIcon className="HeaderCartIcon" />
+          </Typography>
+          <Typography variant="h5" className="">
+            {" "}
+            Your shopping bag is empty{" "}
+          </Typography>
+          <Button className="EmtyCartBtn" onClick={toggleSlider}>
+            continue shopping
+          </Button>
+        </Typography>
+      </Box>
+    );
 
   return (
     <>
       <AppBar position="static">
         <Toolbar className="ParentBox">
           <Box className="ChildBox1">
-            <Button
-              className="speakerscolor"
-              onClick={() => navigate("/speakers")}
-            >
-              Speakers
-            </Button>
-
-            <Button
-              className="Earphonescolor"
-              onClick={() => navigate("/earphones")}
-            >
-              Earphones
-            </Button>
-
-            <Button
-              className="Watchescolor"
-              onClick={() => navigate("/watches")}
-            >
-              Smart Watches
+            <Button className="speakerscolor" onClick={() => navigate("/")}>
+              Boat-Store
             </Button>
           </Box>
-          <Box className="ChildBox2">
+
+          <Box className="ChildBox3">
+            <IconButton className="ChildBox2" onClick={toggleSlider}>
+              <span className="CartCount">{itemCount}</span>
+
+              <LocalMallOutlinedIcon className="CartBagicon" />
+            </IconButton>
+            <Drawer open={open} anchor="right" onClose={toggleSlider}>
+              {sideList()}
+            </Drawer>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
+
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"

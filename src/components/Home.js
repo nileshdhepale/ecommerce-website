@@ -1,6 +1,4 @@
 import Layout from "./Layout";
-// import PhotoHead from "../Photos/Boat Head.png";
-// import Logo from "../Photos/logo.png";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
@@ -8,10 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea, Typography } from "@mui/material";
 import { setItem, sliderItems } from "../data";
 import { posterItem } from "../data";
-// import Photo from "../Photos/new head.webp";
-import { useState } from "react";
-// import ProductShow from "../pages/ProductShow";
-//import poster from "../Photos/Boat Head.png";
+import { useEffect } from "react";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -27,20 +22,29 @@ const Home = () => {
     navigate("/product");
   };
 
+  // useEffect(() => {
+  //   let authToken = sessionStorage.getItem("Auth Token");
+
+  //   if (authToken) {
+  //     navigate("/");
+  //   }
+
+  //   if (!authToken) {
+  //     navigate("/login");
+  //   }
+  // }, []);
+
   return (
     <>
       <Layout>
-        <div className="imgBodyParent">
-          <div className="imgBody">
-            <Typography className="threeItem">
-              <Typography variant="h5" className="beats">
-                Beats Solo Air
+        <Typography variant="div" className="imgBodyParent">
+          <Typography variant="div" className="imgBody">
+            <Typography variant="div" className="threeItem">
+              <Typography className="beats">Beats Solo Air</Typography>
+              <Typography className="Summer">Summer Sale</Typography>
+              <Typography variant="div" className="FINE">
+                Headphone
               </Typography>
-              <Typography variant="h3" className="Summer">
-                Summer Sale
-              </Typography>
-              <Typography className="FINE">FINE</Typography>
-
               <Button
                 className="Buttoncss"
                 variant="contained"
@@ -49,15 +53,20 @@ const Home = () => {
                 Shop Now
               </Button>
             </Typography>
-            <img
-              className="BoatHeadcss"
-              src={"/Photos/newhead.webp"}
-              alt="Boat head img"
-            />
-          </div>
-        </div>
-        <div className="allCards">
-          {sliderItems.map((product) => (
+
+            <Typography variant="div" className="BoatHeadcssParent">
+              <CardMedia
+                component="img"
+                height="440"
+                className="BoatHeadcss"
+                image={"/Photos/newhead.webp"}
+                alt="green iguana"
+              />
+            </Typography>
+          </Typography>
+        </Typography>
+        <Typography variant="div" className="allCards">
+          {sliderItems.slice(0, 5).map((product) => (
             <Typography
               className="Rowcard"
               onClick={() => gotoProduct(product.id)}
@@ -88,8 +97,7 @@ const Home = () => {
               </Typography>
             </Typography>
           ))}
-        </div>
-        {/* <ProductShow hdr={hdr} /> */}
+        </Typography>
       </Layout>
     </>
   );
