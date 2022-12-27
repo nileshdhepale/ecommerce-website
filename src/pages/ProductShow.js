@@ -3,20 +3,21 @@ import {
   Card,
   CardActionArea,
   CardMedia,
+  Drawer,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { getItem, sliderItems } from "../data";
 import Rating from "@mui/material/Rating";
-import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../context";
+import Draw from "../components/Draw";
 
 const ProductShow = () => {
   const [value, setValue] = React.useState(4);
   const [name, setName] = useState();
-  const navigate = useNavigate();
+
   const { dispatch } = useContext(Context);
   const [open, setOpen] = React.useState(false);
 
@@ -99,6 +100,9 @@ const ProductShow = () => {
               >
                 Buy Now
               </Button>
+              <Drawer open={open} anchor="right" onClose={toggleSlider}>
+                {<Draw toggleSlider={toggleSlider} />}
+              </Drawer>
             </Typography>
           </Typography>
         </Typography>

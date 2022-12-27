@@ -6,11 +6,10 @@ import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea, Typography } from "@mui/material";
 import { setItem, sliderItems } from "../data";
 import { posterItem } from "../data";
-import { useEffect } from "react";
+import React from "react";
 
 const Home = () => {
   const navigate = useNavigate();
-
   const gotoProduct = (id) => {
     setItem(id);
     navigate("/product");
@@ -21,18 +20,6 @@ const Home = () => {
     setItem(id);
     navigate("/product");
   };
-
-  // useEffect(() => {
-  //   let authToken = sessionStorage.getItem("Auth Token");
-
-  //   if (authToken) {
-  //     navigate("/");
-  //   }
-
-  //   if (!authToken) {
-  //     navigate("/login");
-  //   }
-  // }, []);
 
   return (
     <>

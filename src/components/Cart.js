@@ -6,7 +6,7 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { useContext } from "react";
 import { Context } from "../context";
 import CancelIcon from "@mui/icons-material/Cancel";

@@ -14,7 +14,7 @@ import { Divider, makeStyles, Drawer } from "@material-ui/core";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import { useContext } from "react";
 import { Context } from "../context";
-import Cart from "./Cart";
+import Draw from "./Draw";
 
 const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
@@ -43,6 +43,7 @@ export default function Header() {
 
   console.log("-->", state);
   const { cart } = state;
+  console.log("cart", cart);
   let itemCount = 0;
 
   for (const [key, value] of Object.entries(cart)) {
@@ -64,29 +65,6 @@ export default function Header() {
     setAnchorElUser(null);
   };
 
-  const sideList = () =>
-    itemCount ? (
-      <Box className={classes.menuSliderContainer} component="div">
-        <Divider />
-        <Cart />
-      </Box>
-    ) : (
-      <Box className={classes.BoxmenuSliderContainer}>
-        <Typography variant="div" className="EmtyCartParent">
-          <Typography variant="div" className="">
-            <LocalMallOutlinedIcon className="HeaderCartIcon" />
-          </Typography>
-          <Typography variant="h5" className="">
-            {" "}
-            Your shopping bag is empty{" "}
-          </Typography>
-          <Button className="EmtyCartBtn" onClick={toggleSlider}>
-            continue shopping
-          </Button>
-        </Typography>
-      </Box>
-    );
-
   return (
     <>
       <AppBar position="static">
@@ -104,7 +82,7 @@ export default function Header() {
               <LocalMallOutlinedIcon className="CartBagicon" />
             </IconButton>
             <Drawer open={open} anchor="right" onClose={toggleSlider}>
-              {sideList()}
+              {<Draw toggleSlider={toggleSlider} />}
             </Drawer>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -128,11 +106,13 @@ export default function Header() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
+              {/* {settings.map((setting) => ( */}
+
+              <MenuItem onClick={handleCloseUserMenu}>
+                <Typography textAlign="center">Profile</Typography>
+              </MenuItem>
+
+              {/* ))} */}
             </Menu>
           </Box>
         </Toolbar>
